@@ -8,6 +8,9 @@ $lop = $_POST['lop'];
 require_once 'connect.php';
 
 //viet lenh sql de them du lieu
+$ht = str_replace('\'','\\\'',$ht);
+$masv = str_replace('\'','\\\'',$masv);
+$lop = str_replace('\'','\\\'',$lop);
 $addsql = "INSERT INTO sinhvien
 (masv, hoten, lop) VALUES ('$masv', '$ht', '$lop')";
 // echo $themsql; exit;

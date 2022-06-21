@@ -1,4 +1,6 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "qlsv") 
-    or die ('Không thể kết nối tới database');
+$conn = mysqli_connect("localhost", "root", "", "qlsv");
+if(!$conn){
+    die('Không thể kết nối Database:');
+    }
 ?>

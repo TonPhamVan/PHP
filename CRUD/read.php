@@ -71,6 +71,11 @@
         </div>
         </div>
         <!-- modal them sinh vien -->
+        <!-- tìm kiếm -->
+        <form action="" method="get">
+            <input type="text" name="s" class="form-control" 
+            style="margin: 0 0 10px 0;" placeholder="tìm kiếm theo tên">
+        </form>
         <table class="table">
             <thead class="thead-dark">
                 <tr>
@@ -86,10 +91,15 @@
                 require_once 'connect.php';
 
                 //cau lenh
-                $readsql = "SELECT*FROM sinhvien ORDER BY lop, hoten";
-
+                if(isset($_GET['s']) && $_GET['s'] != '') {
+                    $readsql = "SELECT*FROM sinhvien WHERE hoten LIKE '%".$_GET['s']."%' ";
+                } else {
+                    $readsql = "SELECT*FROM sinhvien";
+                }
+                
                 //thuc thi cau lenh
                 $result = mysqli_query($conn, $readsql);
+                
                 //duyet qua rerult va in ra
                 while ($row = mysqli_fetch_assoc($result)) {
                 ?>
