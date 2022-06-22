@@ -133,7 +133,7 @@ if(isset($_GET['deleteid'])) {
                 <th>Action</th>
             </tr>
             <?php
-            // display record
+            // display record or display record search
             if(isset($_GET['s'])) {
                 $data= $obj->displayRecordSearch($_GET['s']);
             } else {
